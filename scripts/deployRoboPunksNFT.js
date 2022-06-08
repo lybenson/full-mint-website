@@ -6,21 +6,17 @@
 const hre = require("hardhat");
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+  const RoboPunksNFT = await hre.ethers.getContractFactory("RoboPunksNFT");
+  const roboPunksNFT = await RoboPunksNFT.deploy();
 
-  // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  await roboPunksNFT.deployed();
 
-  await greeter.deployed();
-
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("RoboPunksNFT deployed to:", roboPunksNFT.address);
 }
+
+// deployed and verify
+// npx hardhat verify --network rinkeby 0x43A6Aa1DCBc59DB9EC2E264B4f3c50ec581F1D3B
+// 104.22.14.57 api-rinkeby.etherscan.io
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
