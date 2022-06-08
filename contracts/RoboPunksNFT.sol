@@ -11,7 +11,7 @@ contract RoboPunksNFT is ERC721, Ownable {
   uint256 public totalSupply;
   // 总共可mint数量
   uint256 public maxSupply;
-  // 每个钱包最大的mint数量
+  // 每个钱包单次最大的mint数量
   uint256 public maxPerWallet;
   // 是否开始公售
   bool public isPublicMintEnabled;
